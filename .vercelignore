@@ -11,5 +11,4 @@ notebook/
 *.png
 .git/
 .gitignore
-README.md
 my_graph.png
