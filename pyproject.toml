@@ -5,7 +5,23 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "fastapi",
+    "httpx",
+    "langchain",
+    "langchain-community",
+    "langchain-experimental",
+    "langchain-google-community[places]",
+    "langchain-groq",
+    "langchain-openai",
+    "langchain-tavily",
+    "langgraph",
     "pandas>=3.1.1",
+    "pydantic",
+    "python-dotenv",
+    "pyyaml",
+    "requests",
+    "streamlit",
+    "uvicorn",
 ]
 
 [project.scripts]
