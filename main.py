@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from agents.agentic_workflow import GraphBuilder
 from starlette.responses import JSONResponse
 import os
 import datetime
@@ -32,6 +31,9 @@ class QueryRequest(BaseModel):
 @app.post("/query")
 async def query_travel_agent(query:QueryRequest):
     try:
+        # Load the AI graph only when a query is made. This keeps health/docs
+        # routes available even if an optional AI dependency is unavailable.
+        from agents.agentic_workflow import GraphBuilder
         print(query)
         graph = GraphBuilder(model_provider="groq")
         react_app=graph()
