@@ -1,11 +1,12 @@
 import streamlit as st
 import requests
 import datetime
+import os
 
 # from exception.exceptions import TradingBotException
 import sys
 
-BASE_URL = "http://127.0.0.1:8001"  # Backend endpoint
+BASE_URL = os.getenv("BACKEND_URL", "http://127.0.0.1:8001").rstrip("/")
 
 st.set_page_config(
     page_title="🌍 Travel Planner Agentic Application",
