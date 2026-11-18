@@ -34,6 +34,10 @@ class ModelLoader(BaseModel):
         if self.model_provider == "groq":
             print("Loading LLM from Groq..............")
             groq_api_key = os.getenv("GROQ_API_KEY")
+            if not groq_api_key:
+                raise RuntimeError(
+                    "GROQ_API_KEY is missing or empty. Add a valid Groq API key to the project's .env file."
+                )
             model_name = self.config["llm"]["groq"]["model_name"]
             llm=ChatGroq(model=model_name, api_key=groq_api_key)
         elif self.model_provider == "openai":

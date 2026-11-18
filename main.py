@@ -17,6 +17,15 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/")
+async def root():
+    return {
+        "status": "ok",
+        "message": "AI Trip Planner API is running",
+        "docs": "/docs",
+    }
+
 class QueryRequest(BaseModel):
     question: str
 
